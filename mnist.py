@@ -35,8 +35,14 @@ y_test = np_utils.to_categorical(y_test)
 
 # Our model will be a sequentiol model consisting of two convolutional layer and two fully connected layers : Conv -> MaxPool -> Dropout -> Conv -> MaxPool -> Dropout -> fullyConnected -> Fully connected
 model = Sequential()
+# We have to state the dimentions of the image intering the conv layer in the first layer only then it is handled by Keras
 model.add(Conv2D(30, (5, 5), input_shape=(1, 28, 28), activation='relu'))
+
+# Using maxpooling layer after convolutional layer is important to reduce the risk of overfitting as 
+# it reduces the image size which removes some details and also reduces the computational cost
 model.add(MaxPooling2D(pool_size=(2, 2)))
+
+# we use drop out as a method to regulize the model and prevent the CNN from overfitting
 model.add(Dropout(0.2))
 
 model.add(Conv2D(70, (3, 3), activation='relu'))
