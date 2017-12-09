@@ -1,5 +1,6 @@
 # Larger CNN for the MNIST Dataset
 # Modified from https://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/ and from https://machinelearningmastery.com/save-load-keras-deep-learning-models/
+# This code is modified and written by AbdElRhman ElMoghazy
 import numpy
 from keras import backend as K
 from keras.datasets import mnist
