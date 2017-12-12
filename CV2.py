@@ -131,4 +131,4 @@ while True:
         #     print(i);
         # print(arduino.readline())
     cv2.imshow("Frame", im)
-    key = cv2.waitKey(10)
+    key = cv2.waitKey(20)
