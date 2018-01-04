@@ -17,12 +17,6 @@ import cv2
 import serial, time
 
 
-arduino = serial.Serial('COM4', 115200 , timeout=.1)
-time.sleep(1) #give the connection a second to settle
-arduino.write(4)
-
-
-
 from keras.models import model_from_json
 
 from keras import backend as k
@@ -115,20 +109,6 @@ while True:
                         num.append(maxi)
                         # print(maxi)
                         cv2.putText(im, str(maxi), (rect[0], rect[1]), cv2.FONT_HERSHEY_DUPLEX, 2, (0, 255, 255), 3)
-        x = ''
-        for i in range (1 , 7)  :
-            if i in num :
-                x = x + str(i)
-            else :
-                x = x+str(0)
-        # print ( x)
-        arduino. write(str(x).encode())
-        # print(arduino.readline())
 
-
-        # for i in num :
-        #     arduino. write(str(i).encode())
-        #     print(i);
-        # print(arduino.readline())
     cv2.imshow("Frame", im)
     key = cv2.waitKey(20)
